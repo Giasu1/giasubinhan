@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Gia Sư Tại Nhà </title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    html{scroll-behavior:smooth}
+    body{background:#ffffff;color:#3d4e65}
+
+    header{ 
+      position:sticky;top:0;background:white;display:flex;justify-content:space-between;align-items:center;
+      padding:15px 40px;box-shadow:0 2px 10px rgba(0,0,0,0.05);z-index:1000
+    }
+    .logo{font-weight:600;font-size:50px;color:#f20404}
+   .logo img {height: 90px;width: 90px;}  /* QUAN TRỌNG: giữ nhỏ lại */
+
+    nav a{margin-left:25px;text-decoration:none;color:#374151;font-weight:500}
+    nav a:hover{color:#4f46e5}
+/* khu vực css */
+    .hero {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  padding-left:  60px;
+  padding-right: 0px;
+  background: #d9eaf5;
+
+  /*background-repeat: no-repeat;
+  background-position: right center; /* 👉 ép ảnh sang phải */
+  background-size: 60px 100px; /* 👉 chỉ chiếm nửa bên phải */
+   
+/*background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.05)),
+    url('Classs.jpg');
+         animation: slideBg 10s infinite;*/
+  color: rgb(7, 7, 7);
+  overflow: hidden; /* đảm bảo ảnh không tràn ra ngoài */
+}
+/*khu vực chuyển ảnh động trang chính */
+@keyframes slideBg {
+  0% {
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.1)),
+      url('logo1.png');
+  }
+
+  33% {
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.1)),
+      url('Class6.jpg');
+  }
+
+  66% {
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.1)),
+      url('Class7.png');
+  }
+
+  100% {
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.1)),
+      url('logo1.jpg');
+  }
+}
+.attention-btn {
+  animation: shakeBlink 1.2s infinite, glow 1.5s infinite;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 0px rgba(232, 240, 6, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(232, 240, 6, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(232, 240, 6, 0.8);
+  }
+}
+/* ảnh nằm gọn bên phải */
+.hero-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;   /* có thể tăng lên 60% nếu muốn */
+  height: 100%;
+  object-fit: cover;
+  transform: translateX(0%);/*tràn ảnh*/
+}
+
+/* text bên trái */
+.hero-text {
+  position: relative;
+  width: 50%;
+  z-index: 2;
+  max-width: 600px;
+}
+    .hero-text{max-width:600px}
+    .hero h1{font-size:50px;margin-bottom:20px}
+    .hero p{margin-bottom:30px;font-size:20px}
+    .btn{padding:30px 20px;background:white;color:#e54646;border-radius:8px;text-decoration:none;font-weight:600}
+    .btn:hover{background:#e0e7ff}
+    .hero img{max-width: 1000px;}
+    .process { padding: 40px 20px; text-align: center;}
+.process h2 {font-size: 40px;margin-bottom: 60px;font-weight: 600;color: #111;}
+.process-wrap {display: flex;justify-content: center;gap: 40px;flex-wrap: wrap;}
+.process-item {width: 260px;}
+/* VÒNG TRÒN */
+.circle {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #1e2a55 0deg 220deg,
+    #e0b14b 220deg 360deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* vòng trắng giữa */
+.circle::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: #f5f5f5;
+  border-radius: 50%;
+}
+/* nội dung */
+.inner {
+  position: relative;
+  width: 200px;
+  text-align: center;
+}
+.inner h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.inner p {
+  font-size: 14px;
+  color: #555;
+}
+    .section{padding:30px 60px;max-width:1800px;margin:auto}
+    .section h2{text-align:center;margin-bottom:40px;font-size:52px;color: #000;}
+    .section h3{padding:0px 0px;text-align:center;margin-bottom:30px;font-size:30px;color: #fe0404;}
+     .section p{text-align:center;margin-bottom:20px;font-size:20px;color: #020202;}
+    .why {background: #f0f0a9;
+      /*background: url('Classs.jpg'); NẾU MUỐN CHEN ẢNH TRỰC TIẾP LÊN NỀN*/ 
+      border-radius: 30px; }/* bo góc nền */
+      .dichvugiasu{padding:40px;max-width:1300px;margin:auto}
+.dichvugiasu h2{text-align:center;margin-bottom:20px;font-size:42px;color: #e50c0c;background: #f0f0a9;border-radius: 10px; }
+.hidden-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+   display: flex;
+  flex-direction: column;
+  align-items: center; /* căn giữa ngang */
+  text-align: center;
+  transition: all 0.35s ease;
+}
+.hidden-content a.btn { max-width:500px;margin:auto;
+  margin-top: 0px;
+  display: inline-block;
+  width: fit-content;
+}
+
+/* khi mở */
+.card.active .hidden-content {
+  max-height: 300px;
+  opacity: 1;
+}
+
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+    .feature-box{background:rgb(255, 255, 255);padding:25px;border-radius:16px;box-shadow:0 5px 15px rgba(10, 10, 10, 0.05);transition:.3s}
+    .feature-box:hover{transform:translateY(-8px)}
+       .tuyendung{padding:40px;max-width:1300px;margin:auto}
+.tuyendung h2{text-align:center;margin-bottom:20px;font-size:42px;color: #e50c0c;background: #f0f0a9;border-radius: 10px; }
+
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+    .feature-box-tuyendung {background:rgb(237, 248, 253);padding:25px;border-radius:16px;box-shadow:0 5px 15px rgba(10, 10, 10, 0.05);transition:.3s}
+    .feature-box-tuyendung:hover{transform:translateY(-8px)}
+
+    .courses{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
+    .card{background:rgb(255, 255, 255);border-radius:16px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.08);transition:.3s}
+    .card:hover{transform:translateY(-10px)}
+    .card img{width:100%;height:180px;object-fit:cover}
+    .card-content{padding:20px}
+
+.stats{display:flex; justify-content:space-between; align-items:flex-start; /* không cần box vẫn thẳng hàng */ text-align:center;margin-top:10px;}
+.stats > div{flex:1;padding:5px;}
+.stats div{font-size:20px;color:#111;line-height:1.5;}
+    .stats div{text-align: center; margin-bottom:20px;font-size:20px;color: #010101;}
+
+    .form{background:white;padding:30px;border-radius:16px;box-shadow:0 5px 15px rgba(0,0,0,0.05);max-width:500px;margin:auto}
+    .form input{width:100%;padding:12px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px}
+    .form button{width:100%;padding:12px;background:#4f46e5;color:white;border:none;border-radius:8px}
+
+    footer{background:#cafafaa7;text-align:center;padding:0px 10px;margin-top:10px;height:250px; border-radius:10px;width:100%;}
+    footer h4 {text-align:center;margin-bottom:40px;font-size:42px;color: #e50c0c;background: #f0f0a9;border-radius: 10px;}
+    
+
+    /* CHAT */
+    .floating-contact {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 999;
+}
+
+.chat-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  animation: shake 1s infinite;
+}
+
+.chat-btn img {
+  width: 30px;
+  height: 30px;}
+
+  /* nút chỉ đường map */
+
+/* màu riêng 
+.zalo {
+  background: #0084ff;
+}
+
+.messenger {
+  background: #00b2ff;
+}*/
+  .toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #22c55e;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: 0.3s;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+ /*hiệu ứng rung */
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2px, 2px); }
+  50% { transform: translate(2px, -2px); }
+  75% { transform: translate(-2px, 2px); }
+  100% { transform: translate(0, 0); }
+}
+    @media(max-width:768px){
+      .hero{flex-direction:column;text-align:center;height:auto;padding:60px 20px}
+      .hero img{margin-top:30px;width:100%}
+    }
+    @media (max-width: 768px) {
+
+  /* HEADER */
+  header {
+    flex-direction: row;
+    padding: 10px 15px;
+  }
+
+  .logo {
+     font-size: 22px;   /* giảm để không đẩy layout */
+  font-weight: 600;
+  white-space: nowrap; /* không xuống dòng */
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+}
+.menu-toggle{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
+}
+/*Định vị đúng vị trí từng ưng dụng*/
+section {
+  scroll-margin-top: 110px; 
+}
+/* =========================
+   MOBILE OPTIMIZATION FIX
+   ========================= */
+
+@media (max-width: 768px) {
+
+  /* BODY */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+   flex-direction: row;        /* GIỮ CÙNG HÀNG */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;}
+
+  .logo {
+    font-size: 20px;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;   /* 👈 quan trọng: dính góc phải */
+    width: 200px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  nav a {
+    margin-left: 0;
+    font-size: 14px;
+  }
+
+  /* HERO */
+  .hero {
+    flex-direction: column;
+    height: auto;
+    padding: 30px 15px;
+    text-align: center;
+  }
+
+  .hero-text {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .btn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .hero-img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  /* SECTION */
+  .section {
+    padding: 20px 15px;
+  }
+
+  .section h2 {
+    font-size: 22px;
+  }
+
+  .section h3 {
+    font-size: 16px;
+  }
+
+  .section p {
+    font-size: 14px;
+  }
+
+  /* FEATURES GRID */
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  /* COURSES */
+  .courses {
+    grid-template-columns: 1fr;
+  }
+
+  /* STATS */
+   .stats{flex-direction:column;}
+  .stat-box{ width:100%;}
+  /* FORM */
+  .form {
+    width: 100%;
+    padding: 20px;
+  }
+
+  /* FOOTER */
+  footer {
+    height: auto;
+    padding: 20px;
+  }
+
+  footer h4 {
+    font-size: 22px;
+  }
+
+  iframe {
+    height: 200px;
+  }
+
+  /* FLOAT BUTTON */
+  .floating-contact {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .chat-btn {
+    width: 50px;
+    height: 50px;
+  }
+}
+/* ẨN NÚT MENU TRÊN PC */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  margin-left: auto; /* ép sang phải */
+}
+
+/* PC: giữ nguyên nav ngang */
+nav {
+  display: flex;
+}
+
+/* MOBILE ONLY */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto; /* ép sát phải */
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  nav a {
+    padding: 12px 20px;
+    border-bottom: 1px solid #eee;
+  }
+
+  nav.active {
+    display: flex;
+  }
+  .process {
+    padding: 20px 10px;
+  }
+
+  .process h2 {
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+
+  .process-wrap {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .process-item {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .circle {
+    width: 180px;
+    height: 180px;
+    margin: auto;
+  }
+
+  .circle::before {
+    width: 140px;
+    height: 140px;
+  }
+
+  .inner {
+    width: 120px;
+  }
+
+  .inner h3 {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .inner p {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+}
+
+  </style>
+</head>
+<script>
+function toggleMenu() {
+  document.getElementById("menu").classList.toggle("active");
+}
+</script>
+
+<body>
+
+<header>
+  <div class="logo">
+ <img src="logo1.png">
+  <span>Gia Sư Tại Nhà</span>
+  </div>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <nav id="menu">
+    <a href="#home">Trang chủ</a>
+    <a href="#services">Khóa học</a>
+    <a href="#recruit">Tuyển dụng</a>
+    <a href="#register">Đăng ký</a>
+    <a href="#footer">Liên hệ</a> 
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-text">
+    <h1> Gia sư tại nhà – Hiệu quả nhanh chóng </h1>
+    <p>Kèm 1-1, báo bài, nâng cao điểm số rõ rệt</p>
+    <a href="#register" class="btn attention-btn">Đăng ký ngay</a>
+  </div>
+   <!-- THÊM ẢNH -->
+  <img src="logo2.png" class="hero-img">
+  <script>
+const images = ["logo2.png","Class6.png","Class7.png","Classs4.png","Classs5.jpg"];
+let i = 0;
+const heroImg = document.querySelector(".hero-img");
+heroImg.src = images[i];
+setInterval(() => {
+  i = (i + 1) % images.length;
+  heroImg.src = images[i];
+}, 3000);
+</script>
+ </section>
+<section class="process">
+  <h2>QUY TRÌNH LÀM VIỆC</h2>
+  <div class="process-wrap">
+    <div class="process-item">
+      <div class="circle">
+        <div class="inner">
+          <h3>📞 PHỤ HUYNH ĐĂNG KÝ</h3>
+          <p>Quý phụ huynh đăng ký tìm gia sư cho con thông qua việc điền đầy đủ thông tin và nhu cầu</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="process-item">
+      <div class="circle">
+        <div class="inner">
+          <h3>📄 TIẾP NHẬN HỒ SƠ</h3>
+          <p>Chúng tôi tiếp nhận, xem xét hồ sơ của quý phụ huynh để hiểu nhu cầu học tập</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="process-item">
+      <div class="circle">
+        <div class="inner">
+          <h3>🎓 GỬI HỒ SƠ GIA SƯ</h3>
+          <p>Sau khi xem xét, chúng tôi sẽ gửi hồ sơ gia sư phù hợp</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="process-item">
+      <div class="circle">
+        <div class="inner">
+          <h3>🤝 HỖ TRỢ LÂU DÀI</h3>
+          <p>Cam kết hỗ trợ trong quá trình học, đảm bảo chất lượng</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="section">
+  <section class="section why"> <!--tạo nền cho từng mục, tạo như thư mục con-->  
+     <h2>Tại sao chọn chúng tôi?</h2>
+  <div class="features">
+    <div class="feature-box"><h3>Gia sư giỏi - uy tín</h3><p>Kinh nghiệm & tận tâm <p><p>Chất lượng tạo nên thương hiệu</p></div>
+    <div class="feature-box"><h3>Dạy 1-1</h3><p>Theo sát từng học sinh<p>Cải thiện chất lượng học</p></div>
+    <div class="feature-box"><h3>Tối ưu chi phí</h3><p>Hỗ trợ mỗi ngày<p>Đồng hành cùng học sinh</p></div>
+  </div>
+ <div class="stats">
+
+  <div class="stats">
+  <div>
+    Trung tâm luôn lựa chọn kỹ lưỡng những gia sư là sinh viên năng động, nhiệt huyết, là những sinh viên ưu tú, xuất sắc tại các trường Cao Đẳng, Đại Học tại TPHCM.
+  </div>
+
+  <div>
+    95% học sinh tiến bộ trong thời gian theo học tại trung tâm.
+  </div>
+
+  <div>
+    Gia sư của chúng tôi sẽ dạy thử tuần đầu để học sinh và phụ huynh đánh giá trình độ và phong cách giảng dạy.Điều này giúp đảm bảo sự phù hợp và hiệu quả trong quá trình học.
+  </div>
+</div>
+</section>
+
+<section class="dichvugiasu" id="services">
+  <h2>Dịch vụ gia sư</h2>
+  <div class="courses">
+    <div class="card"><img src=Classs5.jpg><div class="card-content"><h3>THCS</h3> 
+      <div class="hidden-content">
+      <p>LỚP 6-9</p>
+      <p>Ôn tập Toán - Lý - Hóa</p>
+      <p>Củng cố kiến thức nền, sửa chữa bài tập</p>
+       <a href="#register" class="btn attention-btn">Đăng ký tìm gia sư</a>
+    </div>
+  </div>
+  </div>
+       <div class="card"><img src=Classs5.jpg><div class="card-content"><h3>TIỂU HỌC</h3>
+        <div class="hidden-content">
+      <p>LỚP 1-5</p>
+      <p>Ôn tập Toán - Tiếng Việt</p>
+      <p>Củng cố kiến thức nền, sửa chữa bài tập</p>
+       <a href="#register" class="btn attention-btn">Đăng ký tìm gia sư</a>
+    </div>
+     </div>
+   </div>
+       <div class="card"><img src=Classs5.jpg><div class="card-content"><h3>BÁO BÀI</h3>
+        <div class="hidden-content">
+      <p>Tất cả các môn</p>
+      <p>Ôn tập bài cũ</p>
+      <p>Củng cố kiến thức nền, chuẩn bị bài mới</p>
+       <a href="#register" class="btn attention-btn">Đăng ký tìm gia sư</a>
+    </div>
+  </div>
+   </div>
+    <div class="card"><img src=https://etechmekong.edu.vn/wp-content/uploads/2024/05/stem-la-gi.jpg><div class="card-content"><h3>STEM</h3>
+      <div class="hidden-content">
+      <p>CẤP TIỂU HỌC - THCS</p>
+      <p>ROBOTIC</p>
+      <p>Huấn luyện, Đào tạo, Sân chơi bổ ích</p>
+       <a href="#register" class="btn attention-btn">Đăng ký tìm gia sư</a>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="tuyendung" id="recruit">
+  <h2>Tuyển dụng gia sư</h2>
+  <div class="features">
+    <div class="feature-box-tuyendung">
+      <h3>Yêu cầu</h3>
+      <p>Sinh viên/giáo viên giỏi, có trách nhiệm giảng dạy</p>
+    </div>
+    <div class="feature-box-tuyendung">
+      <h3>Quyền lợi</h3>
+      <p>Thu nhập ổn định, linh hoạt thời gian</p>
+    </div>
+    <div class="feature-box-tuyendung">
+      <h3>Liên hệ</h3>
+      <p>Gửi thông tin qua Zalo hoặc đăng ký bên dưới</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="register">
+  <h2>Đăng ký ngay</h2>
+  <div class="form">
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Họ và tên" required>
+      <input type="tell" name="phone" placeholder="SĐT" required>
+      <input type="text" name="class" placeholder="Lớp">
+      <input type="text" name="class" placeholder="Môn học">
+       <input type="text" name="class" placeholder="Khác">
+      <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSeAsnoIfGYIrp5CcDnB_SGW11H7FkaSwt_UFb7MBCdmyYrHqQ/viewform','_blank')">
+  Gửi đăng ký tư vấn
+</button>
+    </form>
+    <p id="successMsg" style="display:none;color:green">Đã gửi!</p>
+  </div>
+</section>
+
+<footer id="footer">
+  <h4>Liên hệ</h4>
+  <p>📞 Hotline: 0967060696</p>
+  <p>📍  Địa Chỉ : Hoàng Cầm, P.Đông Hòa TP.Dĩ An</p>
+   <p>📘 <a  href="https://www.facebook.com/profile.php?id=61581173162389" style="text-decoration:none" ; target="Trung tâm gia sư tại nhà">
+    Trung tâm gia sư tại nhà
+</a></p>
+  <iframe 
+  src="https://www.google.com/maps?q=10.8968595,106.8104245&z=17&output=embed"
+  width="100%" 
+  height="300" 
+  style="border:0;border-radius:10px">
+</iframe>
+</footer>
+
+<div class="floating-contact">
+  <!-- Zalo -->
+  <a href="https://zalo.me/0967060696" target="_blank" class="chat-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg">
+  </a>
+
+  <!-- Messenger -->
+  <a href="https://m.me/813449265185812" target="_blank" class="chat-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg">
+  </a>
+</div>
+<div id="toast" class="toast">
+  ✔ Gửi thành công! Chúng tôi sẽ liên hệ sớm
+</div>
+</div>
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const form = this;
+  const toast = document.getElementById("toast");
+
+  const name = form.name.value;
+  const phone = form.phone.value;
+  const lop = form.class.value;
+
+  const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSfO_bgZeht5g-ENXH9P7Yte6i8wDukKQL8M7vmZzpJiAV54GA/formResponse";
+
+  const formData = new FormData();
+formData.append("entry.944128202", name);
+formData.append("entry.2066622782", phone);
+
+
+  // gửi dữ liệu
+fetch(formURL, {
+  method: "POST",
+  body: formData
+});
+  // hiện thông báo nhỏ gọn
+  toast.classList.add("show");
+
+  // reset form (xóa chữ đã nhập)
+  form.reset();
+
+  // 2s sau → ẩn + về trang chủ
+  setTimeout(()=>{
+    toast.classList.remove("show");
+    window.location.href = "#home";
+  },2000);
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    card.addEventListener("click", function () {
+
+      const isOpen = card.classList.contains("active");
+
+      // đóng tất cả
+      cards.forEach(c => c.classList.remove("active"));
+
+      // nếu chưa mở thì mở
+      if (!isOpen) {
+        card.classList.add("active");
+
+        // ⏱ tự đóng sau 5 giây
+        setTimeout(() => {
+          card.classList.remove("active");
+        }, 3000);
+      }
+
+    });
+  });
+});
+document.querySelectorAll("#menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("menu").classList.remove("active");
+  });
+});
+</script>
+</body>
+<img src="./classroom.png" style="width:200px;"> <!--hiển thị google map-->
+</html>
