@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 *{
   margin:0;
@@ -214,51 +215,95 @@ body::before{
 
 /* BENEFITS */
 .benefits{
-  max-width:1100px;
-  margin:50px auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+  max-width:1200px;
+  margin:80px auto;
   padding:0 20px;
+
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:30px;
+  align-items:stretch;
 }
 
+/* CARD PRO */
 .card{
-  background:white;
-  padding:50px 30px;
-  border-radius:18px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-  font-size: 20px;
-  text-align:center;
-  transition:0.3s;
   position:relative;
+  background:linear-gradient(145deg,#ffffff,#f8fafc);
+  border-radius:20px;
+  padding:40px 25px;
+  text-align:center;
+
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  transition:0.35s ease;
+
   overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:260px;
 }
 
+/* VIỀN TRÊN XANH */
 .card::before{
   content:"";
   position:absolute;
   top:0;
   left:0;
   width:100%;
-  height:5px;
-  background:#2563eb;
+  height:6px;
+  background:linear-gradient(90deg,#2563eb,#60a5fa);
 }
 
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 15px 35px rgba(0,0,0,0.12);
-}
-
-.card h3{
-    font-size: 30px;
+/* ICON GIẢ (đẹp hơn h2) */
+.card h2{
+  font-size:30px;
+  margin-bottom:10px;
   color:#1e3a8a;
-}   
+}
+
+/* SUBTITLE */
+.card h3{
+  font-size:25px;
+  color:#475569;
+  margin-bottom:12px;
+}
+
+/* TEXT */
+.card p{
+  font-size:20px;
+  line-height:1.7;
+  color:#334155;
+}
+
+/* HOVER XỊN */
+.card:hover{
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 20px 50px rgba(37,99,235,0.15);
+}
+
+/* HIỆU ỨNG SÁNG NHẸ */
+.card::after{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  top:-50%;
+  left:-50%;
+  background:radial-gradient(circle,rgba(37,99,235,0.08),transparent 60%);
+  transform:rotate(25deg);
+  opacity:0;
+  transition:0.4s;
+}
+
+.card:hover::after{
+  opacity:1;
+}
 /* FORM */
 .container{
-  max-width:800px;
-  margin:40px auto;
+  max-width:650px;
+  margin:30px auto;
   font-size: 28px;
-  background:white;
+  background:rgb(235, 224, 224);
   padding:40px;
   border-radius:20px;
   box-shadow:0 15px 40px rgba(0,0,0,0.12);
@@ -266,8 +311,14 @@ body::before{
 
 .container h2{
   text-align:center;
+  font-size: 35px;
   margin-bottom:25px;
   color:#1e3a8a;
+}
+.container h3{
+font-size: 18px;
+  margin-bottom:12px;
+  color:#070707;
 }
 
 input,textarea{
@@ -285,15 +336,18 @@ input:focus,textarea:focus{
 }
 
 button{
-  width:100%;
+  width:50%;
   padding:15px;
   background:#2563eb;
   color:white;
-  border:none;
+  border:black;
   border-radius:10px;
   font-size:16px;
   cursor:pointer;
   transition:0.3s;
+  text-align:center;
+  display: block;
+  margin:20px auto 0 auto; /* <-- căn giữa */
 }
 
 button:hover{
@@ -339,26 +393,188 @@ button:hover{
   grid-template-columns:repeat(3, 1fr);
   gap:25px;
 }
-/* MOBILE */
-@media(max-width:768px){
+html{
+  scroll-behavior:smooth;
+}
 
+#register{
+  scroll-margin-top:120px;
+}
+.floating-contact {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 9999;
+}
+
+.chat-btn{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background: transparent !important;  /* 🔥 ÉP XOÁ NỀN */
+  box-shadow: none !important;         /* 🔥 ÉP XOÁ BÓNG */
+
+  animation: shake 1.5s infinite;
+}
+
+.chat-btn img {
+  width: 32px;
+  height: 32px;
+}
+
+/* KHÔNG nền ZALO */
+.chat-btn.zalo {
+  background: transparent !important;
+}
+
+/* KHÔNG nền MESSENGER */
+.chat-btn.messenger {
+  background: transparent !important;
+}
+.chat-btn:hover {
+  transform: scale(1.2);
+}
+
+/* RUNG */
+@keyframes shake {
+  0% { transform: translate(0,0); }
+  25% { transform: translate(-2px,2px); }
+  50% { transform: translate(2px,-2px); }
+  75% { transform: translate(-2px,2px); }
+  100% { transform: translate(0,0); }
+}
+
+/* NHẤP NHÁY VÒNG SÁNG */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0,0,0,0.25); }
+  70% { box-shadow: 0 0 0 15px rgba(0,0,0,0); }
+  100% { box-shadow: 0 0 0 0 rgba(0,0,0,0); }
+}
+  /* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width:768px){
+
+  body{
+    overflow-x:hidden;
+  }
+
+  /* NAVBAR */
   .navbar{
-    padding:15px 20px;
+    padding:12px 15px;
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .logo{
+    font-size:28px;
+    text-align:center;
+  }
+
+  .logo img{
+    width:55px;
+    height:55px;
   }
 
   .menu{
-    display:none;
+    display:flex !important;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
   }
 
-  .header h1{
-    font-size:32px;
+  .menu a{
+    margin-left:0;
+    font-size:15px;
   }
 
-}
-@media(max-width:768px){
-  .benefits{
+  /* HEADER */
+  .header{
+    height:auto;
+    min-height:420px;
+    padding:30px 15px;
+  }
+
+  .header-content{
+    width:100%;
+    padding:20px;
+    margin:10px;
+    border-radius:15px;
+  }
+
+  .header-content h1{
+    font-size:26px;
+    line-height:1.4;
+  }
+
+  .header-content p{
+    font-size:16px;
+    line-height:1.8;
+    text-align:justify;
+  }
+
+  /* BENEFITS */
+    .benefits{
     grid-template-columns:1fr;
+    gap:20px;
   }
+
+  .card{
+    padding:30px 20px;
+    min-height:auto;
+  }
+
+  .card h3{
+    font-size:24px;
+  }
+
+  .card p{
+    font-size:16px;
+    line-height:1.7;
+  }
+
+  /* FORM */
+  .container{
+    width:calc(100% - 30px);
+    margin:30px auto;
+    padding:25px 20px;
+    border-radius:15px;
+  }
+
+  .container h2{
+    font-size:26px;
+    line-height:1.5;
+  }
+
+  .container h3{
+    font-size:15px;
+    line-height:1.6;
+  }
+
+  input,
+  textarea,
+  button{
+    font-size:16px;
+  }
+
+  /* FOOTER */
+  .footer{
+    padding:20px 15px;
+  }
+
+  .footer p{
+    font-size:13px;
+    line-height:1.6;
+  }
+
 }
 </style>
 </head>
@@ -372,7 +588,7 @@ button:hover{
   <div class="menu">
     <a href="index.html">Trang chủ</a>
     <a href="index.html#services">Khóa học</a>
-    <a href="index.html#register">Đăng ký</a>
+    <a href="Phu-Huynh.html#register">Đăng ký</a>
     <a href="index.html#footer">Liên hệ</a>
   </div>
 </div>
@@ -396,19 +612,19 @@ Với phương châm hoạt động “Uy tín – Chất lượng – Hiệu qu
 <div class="benefits">
 
   <div class="card">
-    <h3>🎓 Gia sư giỏi - uy tín.</h3>
+    <h2>🎓 Gia sư giỏi - uy tín.</h2>
     <h3>Kinh nghiệm - Chất lượng.</h3>
     <p>Trung tâm luôn lựa chọn kỹ lưỡng những gia sư là sinh viên năng động, nhiệt huyết, là những sinh viên ưu tú, xuất sắc tại các trường Cao Đẳng, Đại Học tại TPHCM.</p>
   </div>
 
   <div class="card">
-    <h3>📚 Dạy 1-1.</h3>
+    <h2>📚 Dạy 1-1.</h2>
     <h3>Theo sát từng học sinh</h3> 
     <p> 95% học sinh tiến bộ trong thời gian theo học tại trung tâm.</p>
   </div>
 
   <div class="card">
-    <h3>💰 Tối ưu chi phí.</h3>
+    <h2>💰 Tối ưu chi phí.</h2>
     <h3>Hỗ trợ mỗi ngày </h3> 
     <p>Gia sư của chúng tôi sẽ dạy thử 1-3 buổi để học sinh và phụ huynh đánh giá trình độ và phong cách giảng dạy.Điều này giúp đảm bảo sự phù hợp và hiệu quả trong quá trình học.
   </div></p>
@@ -416,17 +632,18 @@ Với phương châm hoạt động “Uy tín – Chất lượng – Hiệu qu
 </div>
 </div>
 <!-- FORM -->
-<div class="container"id="register">
+<div class="container" id="register">
 
-  <h2>ĐĂNG KÝ ỨNG TUYỂN</h2>
+  <h2>ĐĂNG KÝ TƯ VẤN VÀ HỌC THỬ MIỄN PHÍ</h2>
+  <h3>Quý phụ huynh điền đầy đủ thông tin bên dưới.Trung tâm sẽ liên hệ tư vấn trong thời gian sớm nhất :</h3>
 
   <form id="form">
 
-    <input id="name" placeholder="Họ tên" required>
+    <input id="name" placeholder="Họ tên :" required>
 
-    <input id="phone" placeholder="Số điện thoại" required>
+    <input id="phone" placeholder="Số điện thoại quý phụ huynh :" required>
 
-   <input id="subject" placeholder="Môn dạy" list="subject-list" required>
+   <input id="subject" placeholder="Muốn tìm gia sư môn :" list="subject-list" required>
 <datalist id="subject-list">
   <option value="Toán">
   <option value="Văn">
@@ -438,7 +655,7 @@ Với phương châm hoạt động “Uy tín – Chất lượng – Hiệu qu
   <option value="Tiếng Việt">
 </datalist>
 
-<input id="class" placeholder="Lớp dạy" list="class-list" required>
+<input id="class" placeholder="Lớp :" list="class-list" required>
 <datalist id="class-list">
   <option value="Lớp 1">
   <option value="Lớp 2">
@@ -450,8 +667,8 @@ Với phương châm hoạt động “Uy tín – Chất lượng – Hiệu qu
   <option value="Lớp 8">
   <option value="Lớp 9">
 </datalist>
-    <input id="expertise" placeholder="Chuyên môn">
-    <input id="area" placeholder="Khu vực">
+
+    <input id="area" placeholder="Địa chỉ : Số nhà, Đường, Phường,.....">
     <textarea id="note" placeholder="Ghi chú"></textarea>
 
     <button type="submit">GỬI ĐĂNG KÝ</button>
@@ -467,7 +684,20 @@ Với phương châm hoạt động “Uy tín – Chất lượng – Hiệu qu
   </form>
 
 </div>
+<!-- NÚT LIÊN HỆ NỔI -->
+<div class="floating-contact">
 
+  <!-- ZALO -->
+  <a href="https://zalo.me/" target="_blank" class="chat-btn zalo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo">
+  </a>
+
+  <!-- MESSENGER -->
+  <a href="https://m.me/813449265185812" target="_blank" class="chat-btn messenger">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg" alt="Messenger">
+  </a>
+
+</div>
 <!-- FOOTER -->
 <div class="footer">
   <p>© 2026 Gia Sư Bình An. All Rights Reserved.</p>
@@ -488,7 +718,6 @@ document.getElementById("form").addEventListener("submit", function(e){
   data.append("phone", document.getElementById("phone").value);
   data.append("subject", document.getElementById("subject").value);
   data.append("class", document.getElementById("class").value);
-  data.append("expertise", document.getElementById("expertise").value);
     data.append("area", document.getElementById("area").value);
   data.append("note", document.getElementById("note").value);
 
