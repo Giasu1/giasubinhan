@@ -90,27 +90,151 @@ body{
 }
 /* HERO */
 .hero{
-  height:300px;
-  background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
-  url("images/banner1.jpg") center/cover;
+  padding:80px 20px;
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  color:white;
+  overflow:hidden;
+  position:relative;
+}
+
+/* nền ánh sáng */
+.hero::before{
+  content:"";
+  position:absolute;
+  width:400px;
+  height:400px;
+  background:rgba(255,255,255,0.08);
+  border-radius:50%;
+  top:-120px;
+  right:-120px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-container{
+  max-width:1100px;
+  margin:auto;
   display:flex;
   align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:white;
-  padding:20px;
+  justify-content:space-between;
+  gap:40px;
 }
 
-.hero h1{
+/* TEXT */
+.hero-text{
+  flex:1;
+  animation: slideLeft 1s ease-out;
+}
+
+.hero-text h1{
   font-size:48px;
+  line-height:1.2;
 }
 
-.hero p{
+.hero-text p{
   margin-top:15px;
-  font-size:20px;
+  font-size:18px;
   opacity:0.9;
 }
 
+/* CTA */
+.hero-cta{
+  margin-top:25px;
+  display:flex;
+  gap:15px;
+}
+
+.btn{
+  padding:14px 22px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+  display:inline-block;
+}
+
+.btn.primary{
+  background:white;
+  color:#1e3a8a;
+}
+
+.btn.primary:hover{
+  transform:scale(1.05);
+}
+
+.btn.secondary{
+  border:2px solid white;
+  color:white;
+}
+
+.btn.secondary:hover{
+  background:white;
+  color:#1e3a8a;
+}
+
+/* badge */
+.hero-badge{
+  margin-top:20px;
+  font-size:14px;
+  opacity:0.9;
+  line-height:1.8;
+}
+
+/* IMAGE */
+.hero-image{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  animation: slideRight 1s ease-out;
+}
+
+.hero-image img{
+  width:320px;
+  max-width:100%;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.3));
+  animation: floatImg 4s ease-in-out infinite;
+}
+
+/* ANIMATION */
+@keyframes slideLeft{
+  from{opacity:0; transform:translateX(-50px);}
+  to{opacity:1; transform:translateX(0);}
+}
+
+@keyframes slideRight{
+  from{opacity:0; transform:translateX(50px);}
+  to{opacity:1; transform:translateX(0);}
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(20px);}
+}
+
+@keyframes floatImg{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero-container{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .hero-text h1{
+    font-size:32px;
+  }
+
+  .hero-cta{
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+  .hero-image img{
+    width:240px;
+  }
+}
 .cta{
   margin-top:25px;
 }
@@ -233,7 +357,7 @@ body{
 /* bullet đẹp */
 .policy li::marker{
   color:#2563eb;
-  font-size:18px;
+  font-size:20px;
 }
 
 /* hover nhẹ */
@@ -317,6 +441,48 @@ html{
   text-decoration:none;
   box-shadow:0 10px 20px rgba(0,0,0,0.2);
 }
+.floating-contact {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 9999;
+}
+
+.chat-btn{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background: transparent !important;  /* 🔥 ÉP XOÁ NỀN */
+  box-shadow: none !important;         /* 🔥 ÉP XOÁ BÓNG */
+
+  animation: shake 1.5s infinite;
+}
+
+.chat-btn img {
+  width: 32px;
+  height: 32px;
+}
+
+/* KHÔNG nền ZALO */
+.chat-btn.zalo {
+  background: transparent !important;
+}
+
+/* KHÔNG nền MESSENGER */
+.chat-btn.messenger {
+  background: transparent !important;
+}
+.chat-btn:hover {
+  transform: scale(1.2);
+}
 .menu-toggle{
   display:none;
   font-size:32px;
@@ -329,7 +495,11 @@ html{
   display:flex;
   gap:20px;
 }
-
+.from{
+  max-width:800px;
+  margin:60px auto;
+  padding:0 20px;
+}
 /* MOBILE */
 @media(max-width:768px){
 
@@ -407,17 +577,32 @@ img{
   </div>
 </div>
 <!-- HERO -->
-<div class="hero">
-  <div>
-    <h1>Trở thành gia sư uy tín cùng chúng tôi</h1>
-    <p>Thu nhập ổn định - Lớp chất lượng - Hỗ trợ 24/7</p>
+<section class="hero">
+  <div class="hero-container">
 
-    <div class="cta">
-      <a href="tuyen-dung.html#register">Đăng ký ngay</a>
-      <a href="#policy">Xem quy định</a>
+    <!-- LEFT CONTENT -->
+    <div class="hero-text">
+      <h1>Trở thành gia sư uy tín cùng chúng tôi</h1>
+
+      <div class="hero-cta">
+        <a href="#register" class="btn primary">Đăng ký ngay</a>
+        <a href="#policy" class="btn secondary">Xem quy định</a>
+      </div>
+
+      <div class="hero-badge">
+        ✔ Hơn 500+ gia sư đã hợp tác  
+        ✔ Lớp đều mỗi tuần  
+        ✔ Hỗ trợ nhanh trong 5 phút
+      </div>
     </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="hero-image">
+      <img src="Class6.png" alt="Gia sư">
+    </div>
+
   </div>
-</div>
+</section>
 
 <!-- BENEFITS -->
 <section class="section" id="benefit">
@@ -442,7 +627,7 @@ img{
   </div>
 </section>
 
-<!-- POLICY 
+<!-- POLICY -->
 <section class="section" id="policy">
   <h2 class="title">Quy định nhận lớp </h2>
 
@@ -450,43 +635,43 @@ img{
     <h3>Phí nhận lớp</h3>
     <ul>
       <li> Phí nhận lớp của <span style="color:#46eb25;font-weight:700;">
-Gia Sư Tại Nhà là 30% tháng lương đầu
-</span>(tiền phí bạn chỉ đóng cho trung tâm 1 lần duy nhất). Các bạn gia sư có thể xem chi tiết phí nhận lớp ở trên bài đăng tuyển.
+Gia Sư Tại Nhà là 30%</span> tháng lương đầu
+<span style="color:#ff4d00;font-weight:700;">(tiền phí bạn chỉ đóng cho trung tâm 1 lần duy nhất)</span>. Các bạn gia sư có thể xem chi tiết phí nhận lớp ở trên bài đăng tuyển.
 
 Sau thời gian hoạt động có nhiều bạn gia sư sau khi nhận lớp không liên hệ với phụ huynh hoặc có liên hệ hẹn qua gặp thì không qua với nhiều lý do vô lý khiến cho trung tâm bị mất lớp và phụ huynh không còn tin tưởng trung tâm.
-Kể từ ngày 1/1/2022 trung tâm sẽ chuyển qua hình thức thu cọc trước 10% và thu 20% còn lại sau buổi dạy đầu thành công. Nhưng nếu lớp có trục trặc trung tâm vẫn gửi lại 100% tiền phí nhận lớp như lúc trước.
+Trung tâm sẽ chuyển qua hình thức <span style="color:#ff4d00;font-weight:700;">thu cọc trước 10%</span>  và <span style="color:#ff4d00;font-weight:700;"> thu 20% còn lại sau buổi dạy đầu thành công</span>. Nhưng nếu lớp có trục trặc trung tâm vẫn gửi lại 100% tiền phí nhận lớp như lúc trước.
 – Trong 2 tháng dạy nếu có vấn đề gì các bạn gia sư có thể liên hệ trung tâm để hoàn lại phí nhận lớp. Nếu chỉ dạy trong 1 tháng thì bị nghỉ thì trung tâm sẽ gửi lại cho các bạn gia sư 15% tiền phí. Còn nếu lớp dạy được 2 tháng thì trung tâm sẽ không gửi lại tiền phí nhận lớp nữa.</li>
     </ul>
 
     <h3>Các trường hợp gia sư được nhận lại phí nhận lớp:</h3>
     <ul>
-      <li>Trung tâm sẽ hoàn lại 100% phí nhận lớp cho Gia Sư nếu sau buổi dạy đầu phụ huynh thay đổi học phí, thời gian, số lượng học sinh hay địa chỉ dạy kèm mà gia sư không thể dạy được.
-Trung tâm sẽ hoàn trả 50% phí nhận lớp cho Gia Sư nếu có sự cố chính đáng làm trở ngại việc dạy trong vòng 1 tháng kể từ buổi dạy đầu tiên.
+      <li>Trung tâm sẽ <span style="color:#ff4d00;font-weight:700;">hoàn lại 100% phí nhận lớp</span> cho Gia Sư nếu sau buổi dạy đầu phụ huynh thay đổi học phí, thời gian, số lượng học sinh hay địa chỉ dạy kèm mà gia sư không thể dạy được.
+Trung tâm sẽ hoàn trả 50% phí nhận lớp cho Gia Sư nếu có sự cố chính đáng làm trở ngại việc dạy <span style="color:#050505;font-weight:700;">trong vòng 1 tháng</span> kể từ buổi dạy đầu tiên.
 Trong vòng 2 tháng kể từ buổi dạy đầu tiên nếu có vấn đề gì từ phía phụ huynh gia sư nhận lớp dạy kèm có thể liên hệ trung tâm để giải quyết và nhận lại 1 phần phí nhận lớp.
 Trong thời gian hoàn phí nhận lớp các bạn gia sư có thể đổi qua lớp khác hoặc nhận lại tiền phí nếu muốn. Tiền phí sẽ được chuyển ngay sau khi trung tâm gọi đến phụ huynh để xác nhận.</li>
     </ul>
 
     <h3>Những trường hợp các bạn gia sư không được nhận lại tiền phí nhận lớp:</h3>
     <ul>
-      <li>(Gia sư nên đọc và lưu ý kỹ các vấn đề dưới đây để tránh những trở ngại không đáng trước khi quyết định nhận lớp)
+      <li><span style="color:#040404;font-weight:700;">(Gia sư nên đọc và lưu ý kỹ các vấn đề dưới đây để tránh những trở ngại không đáng trước khi quyết định nhận lớp) :</span>
 
-Gia sư nhận lớp phải xem xét các yếu tố: quảng đường di chuyển, năng lực cũng như thời gian giảng dạy. Trung tâm sẽ không hoàn bất kỳ khoản phí nào nếu gia sư tự ý bỏ lớp với lý do đường xa, thiếu phương tiện di chuyển, không sắp xếp được thời gian trong bài đăng tuyển, không đủ thời gian, giảm thời gian, tăng học phí, đi trễ về sớm, xin nghỉ nhiều, tác phong thiếu chuyên nghiệp, đặc biệt là làm việc riêng, sử dụng điện thoại trong giờ dạy ( nhắn tin, lướt facebook,lướt web,…)
-Trong buổi đầu qua gặp nếu gặp vấn đề không liên hệ ngay với trung tâm để được giải quyết (Thời gian tối đa là 3 tiếng kể từ khi qua gặp phụ huynh).
+Gia sư nhận lớp phải xem xét các yếu tố: <span style="color:#ff4d00;font-weight:700;">quảng đường </span>  di chuyển, <span style="color:#ff4d00;font-weight:700;">năng lực </span>cũng như <span style="color:#ff4d00;font-weight:700;"></span>thời gian </span> giảng dạy. Trung tâm sẽ không hoàn bất kỳ khoản phí nào nếu gia sư <span style="color:#ff4d00;font-weight:700;">tự ý bỏ lớp </span>  với lý do <span style="color:#ff4d00;font-weight:700;">đường xa, thiếu phương tiện di chuyển, không sắp xếp được thời gian trong bài đăng tuyển, không đủ thời gian, giảm thời gian, tăng học phí, đi trễ về sớm, xin nghỉ nhiều, tác phong thiếu chuyên nghiệp, đặc biệt là làm việc riêng, sử dụng điện thoại trong giờ dạy</span> ( nhắn tin, lướt facebook,lướt web,…)
+<li> Buổi đầu qua gặp nếu gặp vấn đề không <span style="color:#ff4d00;font-weight:700;">liên hệ ngay với trung tâm</span>để được giải quyết (Thời gian tối đa là 3 tiếng kể từ khi qua gặp phụ huynh).</li>
 Khi trung tâm chuyển giao thông tin lớp dạy mà Gia Sư không liên hệ ngay với Phụ huynh- Học viên. Để các trung tâm khác giao người qua trước vì lý do liên hệ chậm.
 Gia Sư tự ý thay đổi người dạy hay xin ứng lương trước mà không thông báo cho trung tâm. Hoặc gia sư dạy sai kiến thức cho các em học sinh. Không chịu xem kỹ bài trước khi đi dạy làm mất uy tín của trung tâm.
 Gia sư khai báo không đúng thông tin ban đầu như trường học, ngành học, kinh nghiệm giảng dạy…
 Gia sư không trung thực khi cung cấp thông tin về việc hủy lớp.
 <li>
-– Các bạn gia sư lưu ý trước khi nhận lớp nên đọc kỹ các điều khoản ở trên hay các bạn nhận lớp ở các trung tâm gia sư khác để tránh các sự việc sảy ra không mong muốn.</li>
+     Các bạn gia sư <span style="color:#ff4d00;font-weight:700;">ưu ý trước khi nhận lớp nên đọc kỹ các điều khoản ở trên </span>l hay các bạn nhận lớp ở các trung tâm gia sư khác để tránh các sự việc sảy ra không mong muốn.</li>
 
-– Chúc các bạn gia sư nhận được lớp dạy kèm phù hợp nhất. Cám ơn các bạn đã tin tưởng và đồng hành cùng trung tâm gia sư Uy Tín chúng tôi trong suốt thời gian qua.</li>
+<li><span style="color:#46eb25;font-weight:700;"></span>Chúc các bạn gia sư nhận được lớp dạy kèm phù hợp nhất. Cám ơn các bạn đã tin tưởng.</li>
     </ul>
 
   </div>
 </section>
--->
+
 <!-- REGISTER -->
-<section class="section" id="register">
+<section class="from" id="register">
   <h2 class="title">Đăng ký ứng tuyển</h2>
 
   <form>
@@ -494,15 +679,28 @@ Gia sư không trung thực khi cung cấp thông tin về việc hủy lớp.
     <input placeholder="Số điện thoại">
     <input placeholder="Môn dạy">
     <input placeholder="Lớp dạy">
+      <input placeholder="Kinh nghiệm">
+        <input placeholder="Khu vực dạy">
     <textarea placeholder="Ghi chú"></textarea>
 
     <button>Gửi đăng ký</button>
   </form>
 </section>
 
-<!-- FLOAT BUTTON -->
-<a class="float" href="#register">📩 Đăng ký</a>
+<!-- NÚT LIÊN HỆ NỔI -->
+<div class="floating-contact">
 
+  <!-- ZALO -->
+  <a href="https://zalo.me/" target="_blank" class="chat-btn zalo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo">
+  </a>
+
+  <!-- MESSENGER -->
+  <a href="https://m.me/813449265185812" target="_blank" class="chat-btn messenger">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg" alt="Messenger">
+  </a>
+
+</div>
 <!-- FOOTER -->
 <div class="footer">
   © 2026 Gia Sư Bình An - All Rights Reserved
@@ -517,6 +715,48 @@ document.querySelectorAll(".menu a").forEach(a=>{
   a.addEventListener("click",()=>{
     document.querySelector(".menu").classList.remove("active");
   });
+});
+document.getElementById("form").addEventListener("submit", function(e){
+
+  e.preventDefault();
+
+  document.getElementById("loading").style.display="block";
+  document.getElementById("success").style.display="none";
+
+  const data = new URLSearchParams();
+
+  data.append("name", document.getElementById("name").value);
+  data.append("phone", document.getElementById("phone").value);
+  data.append("subject", document.getElementById("subject").value);
+  data.append("class", document.getElementById("class").value);
+    data.append("area", document.getElementById("area").value);
+  data.append("note", document.getElementById("note").value);
+
+  fetch("https://script.google.com/macros/s/AKfycbxVnGWD9Hha38yPLm-iJXS6FtgYCUaZ68kn58azt4v3dckxmsQswY_4lmucVLkjmoQF/exec",{
+    method:"POST",
+    body:data
+  })
+
+  .then(res=>res.text())
+
+  .then(res=>{
+
+    document.getElementById("loading").style.display="none";
+
+    document.getElementById("success").style.display="block";
+
+    document.getElementById("form").reset();
+
+  })
+
+  .catch(err=>{
+
+    document.getElementById("loading").style.display="none";
+
+    alert("Có lỗi xảy ra!");
+
+  });
+
 });
 </script>
 </body>
