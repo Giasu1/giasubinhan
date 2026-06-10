@@ -512,50 +512,34 @@ html{
   }
 
   /* ===== NAVBAR ===== */
-  .navbar{
-    padding:12px 16px;
-  }
+  /* NAVBAR */
+.navbar{
+  padding:12px 15px;
+  flex-direction:column;
+  gap:10px;
+}
 
-  .logo{
-    font-size:18px;
-    gap:6px;
-  }
+.logo{
+  font-size:28px;
+  text-align:center;
+}
 
-  .logo img{
-    width:42px;
-    height:42px;
-  }
+.logo img{
+  width:55px;
+  height:55px;
+}
 
-  .menu-toggle{
-    display:block;
-    font-size:28px;
-  }
+.menu{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+}
 
-  .menu{
-    position:fixed;
-    top:70px;
-    left:10px;
-    right:10px;
-    flex-direction:column;
-    background:#fff;
-    border-radius:14px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.15);
-    overflow:hidden;
-    max-height:0;
-    transition:0.3s ease;
-    z-index:999;
-  }
-
-  .menu.active{
-    max-height:320px;
-  }
-
-  .menu a{
-    padding:14px;
-    border-bottom:1px solid #eee;
-    font-size:15px;
-  }
-
+.menu a{
+  margin-left:0;
+  font-size:15px;
+}
   /* ===== HERO ===== */
   .hero{
     padding:60px 15px;
@@ -667,8 +651,6 @@ html{
     <img src="logo1.png">
     Gia Sư Bình An
   </div>
-
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
   <div class="menu">
     <a href="index.html">Trang chủ</a>
