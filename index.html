@@ -389,295 +389,449 @@ button:hover{
   75% { transform: translate(-2px, 2px); }
   100% { transform: translate(0, 0); }
 }
-   /* ===========================
-   MOBILE RESPONSIVE (<=768px)
-=========================== */
+    @media(max-width:768px){
+      .hero{flex-direction:column;text-align:center;height:auto;padding:60px 20px}
+      .hero img{margin-top:30px;width:100%}
+    }
+    @media (max-width: 768px) {
 
-.menu-toggle{
-    display:none;
+  /* HEADER */
+  header {
+    flex-direction: row;
+    padding: 10px 15px;
+  }
+
+  .logo {
+     font-size: 22px;   /* giảm để không đẩy layout */
+  font-weight: 600;
+  white-space: nowrap; /* không xuống dòng */
+  }
+}
+/* ==========================
+   MOBILE FINAL FIX
+========================== */
+@media screen and (max-width:768px){
+
+  body{
+    overflow-x:hidden;
+  }
+
+  /* HEADER */
+  header{
+    padding:10px 15px;
+  }
+
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:18px;
+  }
+
+  .logo img{
+    width:50px;
+    height:50px;
+  }
+
+  /* HERO */
+  .hero{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    height:auto;
+    min-height:auto;
+
+    padding:40px 20px;
+  }
+
+  .hero-text{
+    width:100%;
+    max-width:100%;
+    order:1;
+  }
+
+  .hero h1{
+    font-size:30px;
+    line-height:1.4;
+    margin-bottom:15px;
+  }
+
+  .hero p{
+    font-size:16px;
+    margin-bottom:20px;
+  }
+
+  .hero-img{
+    position:relative;
+    width:100%;
+    max-width:350px;
+    height:auto;
+    margin-top:25px;
+    order:2;
+  }
+
+  .btn{
+    width:100%;
+    max-width:280px;
+    padding:14px;
+    font-size:15px;
+    margin:auto;
+  }
+
+  /* SECTION */
+  .section{
+    padding:25px 15px;
+  }
+
+  .section h2{
     font-size:28px;
-    cursor:pointer;
+    margin-bottom:20px;
+  }
+
+  .section h3{
+    font-size:22px;
+  }
+
+  .section p{
+    font-size:15px;
+  }
+
+  /* PROCESS */
+  .process h2{
+    font-size:28px;
+  }
+
+  .circle{
+    width:180px;
+    height:180px;
+  }
+
+  .circle::before{
+    width:140px;
+    height:140px;
+  }
+
+  /* GRID */
+  .features,
+  .courses{
+    grid-template-columns:1fr;
+  }
+
+  /* CARD */
+  .card{
+    width:100%;
+  }
+
+  .card img{
+    height:200px;
+  }
+
+  /* STATS */
+  .stats{
+    flex-direction:column;
+    gap:15px;
+  }
+
+  .stats > div{
+    width:100%;
+  }
+
+  /* FORM */
+  .container{
+    width:95%;
+    padding:20px;
+  }
+
+  .container h2{
+    font-size:28px;
+  }
+
+  input,
+  textarea{
+    font-size:16px;
+  }
+
+  button{
+    width:100%;
+  }
+
+  /* FOOTER */
+  footer{
+    height:auto;
+    padding:20px;
+  }
+
+  footer h4{
+    font-size:26px;
+  }
+
+  iframe{
+    height:220px;
+  }
+
+  /* FLOATING BUTTON */
+  .chat-btn{
+    width:55px;
+    height:55px;
+  }
+
+  .chat-btn img{
+    width:28px;
+    height:28px;
+  }
 }
 
-section{
-    scroll-margin-top:110px;
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+}
+.menu-toggle{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
+}
+/*Định vị đúng vị trí từng ưng dụng*/
+section {
+  scroll-margin-top: 110px; 
+}
+/* =========================
+   MOBILE OPTIMIZATION FIX
+   ========================= */
+
+@media (max-width: 768px) {
+
+  /* BODY */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+   flex-direction: row;        /* GIỮ CÙNG HÀNG */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;}
+
+  .logo {
+    font-size: 20px;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;   /* 👈 quan trọng: dính góc phải */
+    width: 200px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  nav a {
+    margin-left: 0;
+    font-size: 14px;
+  }
+
+  /* HERO */
+  .hero {
+    flex-direction: column;
+    height: auto;
+    padding: 30px 15px;
+    text-align: center;
+  }
+
+  .hero-text {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .btn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .hero-img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  /* SECTION */
+  .container{
+    width:calc(100% - 30px);
+    margin:30px auto;
+    padding:25px 20px;
+    border-radius:15px;
+  }
+
+  .container h2{
+    font-size:26px;
+    line-height:1.5;
+  }
+
+  .container h3{
+    font-size:15px;
+    line-height:1.6;
+  }
+
+  input,
+  textarea,
+  button{
+    font-size:16px;
+  }
+
+  /* FEATURES GRID */
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  /* COURSES */
+  .courses {
+    grid-template-columns: 1fr;
+  }
+
+  /* STATS */
+   .stats{flex-direction:column;}
+  .stat-box{ width:100%;}
+  /* FORM */
+  .form {
+    width: 100%;
+    padding: 20px;
+  }
+
+  /* FOOTER */
+  footer {
+    height: auto;
+    padding: 20px;
+  }
+
+  footer h4 {
+    font-size: 22px;
+  }
+
+  iframe {
+    height: 200px;
+  }
+
+  /* FLOAT BUTTON */
+  .floating-contact {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .chat-btn {
+    width: 50px;
+    height: 50px;
+  }
+}
+/* ẨN NÚT MENU TRÊN PC */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  margin-left: auto; /* ép sang phải */
 }
 
-@media (max-width:768px){
+/* PC: giữ nguyên nav ngang */
+nav {
+  display: flex;
+}
 
-    /* ========= BODY ========= */
+/* MOBILE ONLY */
+#policy{
+  scroll-margin-top:120px;
+}
+html{
+  scroll-behavior:smooth;
+}
+@media (max-width: 768px) {
 
-    body{
-        overflow-x:hidden;
-    }
+  .menu-toggle {
+    display: block;
+    margin-left: auto; /* ép sát phải */
+  }
 
-    /* ========= HEADER ========= */
+  nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
 
-    header{
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        padding:10px 15px;
-    }
+  nav a {
+    padding: 12px 20px;
+    border-bottom: 1px solid #eee;
+  }
 
-    .logo{
-        display:flex;
-        align-items:center;
-        gap:8px;
-        font-size:18px;
-        white-space:nowrap;
-    }
+  nav.active {
+    display: flex;
+  }
+  .process {
+    padding: 20px 10px;
+  }
 
-    .logo img{
-        width:50px;
-        height:50px;
-    }
+  .process h2 {
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
 
-    /* ========= MENU ========= */
+  .process-wrap {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
 
-    .menu-toggle{
-        display:block;
-    }
+  .process-item {
+    width: 100%;
+    max-width: 260px;
+  }
 
-    nav{
-        display:none;
-        flex-direction:column;
-        position:absolute;
-        top:70px;
-        left:0;
-        width:100%;
-        background:#fff;
-        box-shadow:0 5px 15px rgba(0,0,0,.12);
-        z-index:999;
-    }
+  .circle {
+    width: 180px;
+    height: 180px;
+    margin: auto;
+  }
 
-    nav.active{
-        display:flex;
-    }
+  .circle::before {
+    width: 140px;
+    height: 140px;
+  }
 
-    nav a{
-        margin:0;
-        padding:14px 20px;
-        font-size:15px;
-        border-bottom:1px solid #eee;
-    }
+  .inner {
+    width: 120px;
+  }
 
-    /* ========= HERO ========= */
+  .inner h3 {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
 
-    .hero{
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-        text-align:center;
-        height:auto;
-        padding:40px 20px;
-    }
-
-    .hero-text{
-        width:100%;
-        max-width:100%;
-        order:1;
-    }
-
-    .hero h1{
-        font-size:30px;
-        line-height:1.4;
-        margin-bottom:15px;
-    }
-
-    .hero p{
-        font-size:16px;
-        line-height:1.6;
-        margin-bottom:20px;
-    }
-
-    .hero-img{
-        position:relative;
-        width:100%;
-        max-width:360px;
-        height:auto;
-        margin-top:25px;
-        order:2;
-    }
-
-    .btn{
-        display:block;
-        width:100%;
-        max-width:280px;
-        margin:auto;
-        padding:14px;
-        font-size:15px;
-    }
-
-    /* ========= PROCESS ========= */
-
-    .process{
-        padding:30px 15px;
-    }
-
-    .process h2{
-        font-size:28px;
-        margin-bottom:30px;
-    }
-
-    .process-wrap{
-        flex-direction:column;
-        align-items:center;
-        gap:25px;
-    }
-
-    .process-item{
-        width:100%;
-        max-width:260px;
-    }
-
-    .circle{
-        width:180px;
-        height:180px;
-        margin:auto;
-    }
-
-    .circle::before{
-        width:140px;
-        height:140px;
-    }
-
-    .inner{
-        width:120px;
-    }
-
-    .inner h3{
-        font-size:13px;
-    }
-
-    .inner p{
-        font-size:11px;
-    }
-
-    /* ========= SECTION ========= */
-
-    .section,
-    .dichvugiasu,
-    .tuyendung{
-        width:100%;
-        max-width:100%;
-        padding:35px 18px;
-    }
-
-    .section h2,
-    .dichvugiasu h2,
-    .tuyendung h2{
-        font-size:28px;
-        margin-bottom:25px;
-    }
-
-    .section h3{
-        font-size:20px;
-    }
-
-    .section p{
-        font-size:15px;
-        line-height:1.7;
-    }
-
-    /* ========= GRID ========= */
-
-    .features,
-    .courses{
-        display:grid;
-        grid-template-columns:1fr;
-        gap:20px;
-    }
-
-    .feature-box,
-    .feature-box-tuyendung,
-    .card{
-        width:100%;
-    }
-
-    .card img{
-        width:100%;
-        height:200px;
-        object-fit:cover;
-    }
-
-    .card-content{
-        padding:20px;
-    }
-
-    /* ========= STATS ========= */
-
-    .stats{
-        display:flex;
-        flex-direction:column;
-        gap:20px;
-    }
-
-    .stats>div{
-        width:100%;
-    }
-
-    /* ========= FORM ========= */
-
-    .container{
-        width:calc(100% - 24px);
-        max-width:700px;
-        margin:40px auto;
-        padding:25px 20px;
-        border-radius:15px;
-    }
-
-    .container h2{
-        font-size:28px;
-    }
-
-    .container h3{
-        font-size:16px;
-        line-height:1.6;
-    }
-
-    input,
-    textarea{
-        width:100%;
-        font-size:16px;
-    }
-
-    button{
-        width:100%;
-    }
-
-    /* ========= FOOTER ========= */
-
-    footer{
-        height:auto;
-        padding:20px;
-    }
-
-    footer h4{
-        font-size:26px;
-    }
-
-    iframe{
-        height:220px;
-    }
-
-    /* ========= FLOAT ========= */
-
-    .floating-contact{
-        right:10px;
-        bottom:10px;
-    }
-
-    .chat-btn{
-        width:52px;
-        height:52px;
-    }
-
-    .chat-btn img{
-        width:28px;
-        height:28px;
-    }
+  .inner p {
+    font-size: 11px;
+    line-height: 1.4;
+  }
 
 }
   </style>
