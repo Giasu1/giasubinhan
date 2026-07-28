@@ -461,27 +461,30 @@ section{
         font-size:15px;
         border-bottom:1px solid #eee;
     }
-    .dropdown{
-    display:block;
+nav a,
+.dropdown-btn{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
     width:100%;
-}
+    min-height:56px;
+    padding:16px 20px;
 
-.dropdown-content{
-    position:static;
-    display:none;
-    opacity:1;
-    visibility:visible;
-    transform:none;
-    box-shadow:none;
-    border-radius:0;
-    background:#fff;
-    width:100%;
+    font-size:20px;
+    cursor:pointer;
 }
-
-.dropdown.active .dropdown-content{
+.dropdown-content a{
     display:block;
+    padding:15px 35px;
+    min-height:50px;
+    line-height:20px;
 }
-
+nav a:active,
+.dropdown-btn:active,
+.dropdown-content a:active{
+    background:#eef4ff;
+}
     /* ========= HERO ========= */
 
     .hero{
@@ -1065,28 +1068,6 @@ document.querySelectorAll("#menu a").forEach(link => {
   link.addEventListener("click", () => {
     document.getElementById("menu").classList.remove("active");
   });
-});
-const dropdowns = document.querySelectorAll(".dropdown");
-
-dropdowns.forEach(drop => {
-
-    const btn = drop.querySelector(".dropdown-btn");
-
-    btn.onclick = function(e){
-
-        e.preventDefault();
-
-        // đóng các mục khác
-        dropdowns.forEach(item=>{
-            if(item!==drop){
-                item.classList.remove("active");
-            }
-        });
-
-        // mở hoặc đóng mục đang chọn
-        drop.classList.toggle("active");
-    }
-
 });
 </script>
 </body>
