@@ -458,6 +458,88 @@ html{
   70% { box-shadow: 0 0 0 15px rgba(0,0,0,0); }
   100% { box-shadow: 0 0 0 0 rgba(0,0,0,0); }
 }
+/* Bảng giá*/
+.pricing-section{
+    max-width:1100px;
+    margin:60px auto;
+    padding:40px;
+    background:#fff;
+    border-radius:20px;
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+}
+
+.pricing-section h2{
+    text-align:center;
+    color:#1e3a8a;
+    margin-bottom:8px;
+    font-size:34px;
+}
+
+.pricing-section p{
+    text-align:center;
+    color:#666;
+    margin-bottom:30px;
+    font-size:18px;
+}
+
+.price-table{
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:15px;
+}
+
+.price-table thead tr:first-child{
+    background:#edf17c;
+}
+
+.price-table thead tr:nth-child(2){
+    background:#fbfcfd;
+  
+}
+
+.price-table th{
+    color:rgb(1, 1, 1);
+    padding:18px;
+    font-size:18px;
+    border:1px solid rgba(255,255,255,.2);
+}
+
+.price-table td{
+    padding:18px;
+    border:1px solid #e5e7eb;
+    text-align:center;
+    font-size:17px;
+}
+
+.price-table tbody tr:nth-child(even){
+    background:#fcfcfd;
+}
+
+.price-table tbody tr:hover{
+    background:#eef5ff;
+    transition:.3s;
+}
+
+.price-table td:first-child{
+    font-weight:600;
+    color:#1e3a8a;
+    text-align:left;
+}
+
+@media(max-width:768px){
+
+.price-table{
+    display:block;
+    overflow-x:auto;
+    white-space:nowrap;
+}
+
+.pricing-section{
+    padding:20px;
+}
+
+}
   /* =========================
    MOBILE RESPONSIVE
 ========================= */
@@ -630,6 +712,51 @@ Với phương châm hoạt động “Uy tín – Chất lượng – Hiệu qu
   </div></p>
   </div>
 </div>
+</div>
+ <div class="pricing" id="banggia">
+    <h1>Bảng giá Gia Sư Bình An - Liên hệ tư vấn và học thử buổi đầu:</h1>
+  <section class="pricing-section">
+
+    <h2>💰 BẢNG GIÁ DỊCH VỤ GIA SƯ BÌNH AN</h2>
+    <p>Gói học 2 buổi/tuần (01 buổi 1,5 giờ)</p>
+
+    <table class="price-table">
+
+        <thead>
+
+            <tr>
+                <th rowspan="2">Khối lớp</th>
+                <th colspan="2">Học phí / Tháng</th>
+            </tr>
+
+            <tr>
+                <th>👨‍🎓 Sinh viên</th>
+                <th>👨‍🏫 Giáo viên</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>🌱 Lớp 1, 2,3 ,4, 5</td>
+                <td>900.000đ - 1.000.000đ</td>
+                <td>1.300.000đ - 1.400.000đ</td>
+            </tr>
+
+            <tr>
+                <td>📘 Lớp 6, 7, 8, 9</td>
+                <td>1.000.000đ - 1.200.000đ</td>
+                <td>1.500.000đ - 1.600.000đ</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+</section>
+    <p>
+ </p>
+  </div>
 </div>
 <!-- FORM -->
 <div class="container" id="register">
