@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Gia Sư Tại Nhà </title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    html{scroll-behavior:smooth}
+    body{background:#ffffff;color:#3d4e65}
+
+    header{ 
+      position:sticky;top:0;background:white;display:flex;justify-content:space-between;align-items:center;
+      padding:15px 40px;box-shadow:0 2px 10px rgba(0,0,0,0.05);z-index:1000
+    }
+    .logo{font-weight:600;font-size:50px;color:#f20404}
+   .logo img {height: 90px;width: 90px;}  /* QUAN TRỌNG: giữ nhỏ lại */
+
+    nav a{margin-left:25px;text-decoration:none;color:#374151;font-weight:500}
+    nav a:hover{color:#4f46e5}
+/* khu vực css */
+    .hero {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  padding-left:  60px;
+  padding-right: 0px;
+  background: #d9eaf5;
+
+  /*background-repeat: no-repeat;
+  background-position: right center; /* 👉 ép ảnh sang phải */
+  background-size: 60px 100px; /* 👉 chỉ chiếm nửa bên phải */
+   
+/*background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.05)),
+    url('Classs.jpg');
+         animation: slideBg 10s infinite;*/
+  color: rgb(7, 7, 7);
+  overflow: hidden; /* đảm bảo ảnh không tràn ra ngoài */
+}
+.dropdown{
+  position: relative;
+  display: inline-block;
+}
+
+/* menu ẩn ban đầu */
+.dropdown-content{
+  position: absolute;
+  top: 45px;
+  left: 0;
+
+  min-width: 240px;
+  background: white;
+  border-radius: 14px;
+
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+
+  opacity: 0;
+  transform: translateY(10px);
+  visibility: hidden;
+
+  transition: 0.25s ease;
+
+  z-index: 999;
+}
+
+/* item */
+.dropdown-content a{
+  display: block;
+  padding: 14px 18px;
+  text-decoration: none;
+  color: #374151;
+  transition: 0.2s;
+}
+
+.dropdown-content a:hover{
+  background: #f3f4f6;
+  padding-left: 22px;
+  color: #4f46e5;
+}
+
+/* 👇 CHỈ CẦN RÊ CHUỘT LÀ HIỆN */
+.dropdown:hover .dropdown-content{
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+.arrow{
+  font-size: 10px;
+  margin-left: 6px;
+  transition: 0.3s;
+   transform: rotate(180deg);
+}
+
+/* khi mở menu thì xoay mũi tên */
+.dropdown.active .arrow,
+.dropdown:hover .arrow{
+  transform: rotate(180deg);
+}
+/*khu vực chuyển ảnh động trang chính */
+@keyframes slideBg {
+  0% {
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.1)),
+      url('logo1.png');
+  }
+
+  33% {
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.1)),
+      url('Class6.jpg');
+  }
+
+  66% {
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.1)),
+      url('Class7.png');
+  }
+
+  100% {
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.1)),
+      url('logo1.jpg');
+  }
+}
+.attention-btn {
+  animation: shakeBlink 1.2s infinite, glow 1.5s infinite;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 0px rgba(232, 240, 6, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(232, 240, 6, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(232, 240, 6, 0.8);
+  }
+}
+/* ảnh nằm gọn bên phải */
+.hero-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;   /* có thể tăng lên 60% nếu muốn */
+  height: 100%;
+  object-fit: cover;
+  transform: translateX(0%);/*tràn ảnh*/
+}
+
+/* text bên trái */
+.hero-text {
+  position: relative;
+  width: 50%;
+  z-index: 2;
+  max-width: 600px;
+}
+    .hero-text{max-width:600px}
+    .hero h1{font-size:50px;margin-bottom:20px}
+    .hero p{margin-bottom:30px;font-size:20px}
+    .btn{padding:30px 20px;background:white;color:#e54646;border-radius:8px;text-decoration:none;font-weight:600}
+    .btn:hover{background:#e0e7ff}
+    .hero img{max-width: 1000px;}
+    .process { padding: 40px 20px; text-align: center;}
+.process h2 {font-size: 40px;margin-bottom: 60px;font-weight: 600;color: #111;}
+.process-wrap {display: flex;justify-content: center;gap: 40px;flex-wrap: wrap;}
+.process-item {width: 260px;}
+/* VÒNG TRÒN */
+.circle {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #1e2a55 0deg 220deg,
+    #e0b14b 220deg 360deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* vòng trắng giữa */
+.circle::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: #f5f5f5;
+  border-radius: 50%;
+}
+/* nội dung */
+.inner {
+  position: relative;
+  width: 200px;
+  text-align: center;
+}
+.inner h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.inner p {
+  font-size: 14px;
+  color: #555;
+}
+    .section{padding:30px 60px;max-width:1800px;margin:auto}
+    .section h2{text-align:center;margin-bottom:40px;font-size:52px;color: #000;}
+    .section h3{padding:0px 0px;text-align:center;margin-bottom:30px;font-size:30px;color: #fe0404;}
+     .section p{text-align:center;margin-bottom:20px;font-size:20px;color: #020202;}
+    .why {background: #f0f0a9;
+      /*background: url('Classs.jpg'); NẾU MUỐN CHEN ẢNH TRỰC TIẾP LÊN NỀN*/ 
+      border-radius: 30px; }/* bo góc nền */
+      .dichvugiasu{padding:40px;max-width:1300px;margin:auto}
+.dichvugiasu h2{text-align:center;margin-bottom:20px;font-size:42px;color: #e50c0c;background: #f0f0a9;border-radius: 10px; }
+.hidden-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+   display: flex;
+  flex-direction: column;
+  align-items: center; /* căn giữa ngang */
+  text-align: center;
+  transition: all 0.35s ease;
+}
+.hidden-content a.btn { max-width:500px;margin:auto;
+  margin-top: 0px;
+  display: inline-block;
+  width: fit-content;
+}
+
+/* khi mở */
+.card.active .hidden-content {
+  max-height: 300px;
+  opacity: 1;
+}
+
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+    .feature-box{background:rgb(255, 255, 255);padding:25px;border-radius:16px;box-shadow:0 5px 15px rgba(10, 10, 10, 0.05);transition:.3s}
+    .feature-box:hover{transform:translateY(-8px)}
+       .tuyendung{padding:40px;max-width:1300px;margin:auto}
+.tuyendung h2{text-align:center;margin-bottom:20px;font-size:42px;color: #e50c0c;background: #f0f0a9;border-radius: 10px; }
+
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+    .feature-box-tuyendung {background:rgb(237, 248, 253);padding:25px;border-radius:16px;box-shadow:0 5px 15px rgba(10, 10, 10, 0.05);transition:.3s}
+    .feature-box-tuyendung:hover{transform:translateY(-8px)}
+
+    .courses{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
+    .card{background:rgb(255, 255, 255);border-radius:16px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.08);transition:.3s}
+    .card:hover{transform:translateY(-10px)}
+    .card img{width:100%;height:180px;object-fit:cover}
+    .card-content{padding:20px}
+
+.stats{display:flex; justify-content:space-between; align-items:flex-start; /* không cần box vẫn thẳng hàng */ text-align:center;margin-top:10px;}
+.stats > div{flex:1;padding:5px;}
+.stats div{font-size:20px;color:#111;line-height:1.5;}
+    .stats div{text-align: center; margin-bottom:20px;font-size:20px;color: #010101;}
+
+    .form{background:white;padding:30px;border-radius:16px;box-shadow:0 5px 15px rgba(0,0,0,0.05);max-width:500px;margin:auto}
+    .form input{width:100%;padding:12px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px}
+    .form button{width:100%;padding:12px;background:#4f46e5;color:white;border:none;border-radius:8px}
+
+    footer{background:#cafafaa7;text-align:center;padding:0px 10px;margin-top:10px;height:250px; border-radius:10px;width:100%;}
+    footer h4 {text-align:center;margin-bottom:40px;font-size:42px;color: #e50c0c;background: #f0f0a9;border-radius: 10px;}
+    
+
+    /* CHAT */
+    .floating-contact {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 999;
+}
+
+.chat-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  animation: shake 1s infinite;
+}
+
+.chat-btn img {
+  width: 30px;
+  height: 30px;}
+
+  /* nút chỉ đường map */
+
+/* màu riêng 
+.zalo {
+  background: #0084ff;
+}
+
+.messenger {
+  background: #00b2ff;
+}*/
+  .toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #22c55e;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: 0.3s;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.container{
+  max-width:650px;
+  margin:30px auto;
+  font-size: 28px;
+  background:rgb(235, 224, 224);
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.12);
+}
+
+.container h2{
+  text-align:center;
+  font-size: 35px;
+  margin-bottom:25px;
+  color:#1e3a8a;
+}
+.container h3{
+font-size: 18px;
+  margin-bottom:12px;
+  color:#070707;
+}
+
+input,textarea{
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  border-radius:10px;
+  border:1px solid #ddd;
+  transition:0.2s;
+}
+
+input:focus,textarea:focus{
+  border-color:#2563eb;
+  box-shadow:0 0 8px rgba(37,99,235,0.2);
+}
+
+button{
+  width:50%;
+  padding:15px;
+  background:#2563eb;
+  color:white;
+  border:black;
+  border-radius:10px;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+  text-align:center;
+  display: block;
+  margin:20px auto 0 auto; /* <-- căn giữa */
+}
+
+button:hover{
+  background:#1e40af;
+}
+.loading,
+.success {
+  display: none;
+}
+ /*hiệu ứng rung */
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2px, 2px); }
+  50% { transform: translate(2px, -2px); }
+  75% { transform: translate(-2px, 2px); }
+  100% { transform: translate(0, 0); }
+}
+   /* ===========================
+   MOBILE RESPONSIVE (<=768px)
+=========================== */
+
+.menu-toggle{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+section{
+    scroll-margin-top:110px;
+}
+
+@media (max-width:768px){
+
+    /* ========= BODY ========= */
+
+    body{
+        overflow-x:hidden;
+    }
+
+    /* ========= HEADER ========= */
+
+    header{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:10px 15px;
+    }
+
+    .logo{
+        display:flex;
+        align-items:center;
+        gap:8px;
+        font-size:18px;
+        white-space:nowrap;
+    }
+
+    .logo img{
+        width:50px;
+        height:50px;
+    }
+
+    /* ========= MENU ========= */
+
+    .menu-toggle{
+        display:block;
+    }
+
+    nav{
+        display:none;
+        flex-direction:column;
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:#fff;
+        box-shadow:0 5px 15px rgba(0,0,0,.12);
+        z-index:999;
+    }
+
+    nav.active{
+        display:flex;
+    }
+
+    nav a{
+        margin:0;
+        padding:14px 20px;
+        font-size:15px;
+        border-bottom:1px solid #eee;
+    }
+    .dropdown{
+    display:block;
+    width:100%;
+}
+
+.dropdown-content{
+    position:static;
+    display:none;
+    opacity:1;
+    visibility:visible;
+    transform:none;
+    box-shadow:none;
+    border-radius:0;
+    background:#fff;
+    width:100%;
+}
+
+.dropdown.active .dropdown-content{
+    display:block;
+}
+
+    /* ========= HERO ========= */
+
+    .hero{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        height:auto;
+        padding:40px 20px;
+    }
+
+    .hero-text{
+        width:100%;
+        max-width:100%;
+        order:1;
+    }
+
+    .hero h1{
+        font-size:30px;
+        line-height:1.4;
+        margin-bottom:15px;
+    }
+
+    .hero p{
+        font-size:16px;
+        line-height:1.6;
+        margin-bottom:20px;
+    }
+
+    .hero-img{
+        position:relative;
+        width:100%;
+        max-width:360px;
+        height:auto;
+        margin-top:25px;
+        order:2;
+    }
+
+    .btn{
+        display:block;
+        width:100%;
+        max-width:280px;
+        margin:auto;
+        padding:14px;
+        font-size:15px;
+    }
+
+    /* ========= PROCESS ========= */
+
+    .process{
+        padding:30px 15px;
+    }
+
+    .process h2{
+        font-size:28px;
+        margin-bottom:30px;
+    }
+
+    .process-wrap{
+        flex-direction:column;
+        align-items:center;
+        gap:25px;
+    }
+
+    .process-item{
+        width:100%;
+        max-width:260px;
+    }
+
+    .circle{
+        width:180px;
+        height:180px;
+        margin:auto;
+    }
+
+    .circle::before{
+        width:140px;
+        height:140px;
+    }
+
+    .inner{
+        width:120px;
+    }
+
+    .inner h3{
+        font-size:13px;
+    }
+
+    .inner p{
+        font-size:11px;
+    }
+
+    /* ========= SECTION ========= */
+
+    .section,
+    .dichvugiasu,
+    .tuyendung{
+        width:100%;
+        max-width:100%;
+        padding:35px 18px;
+    }
+
+    .section h2,
+    .dichvugiasu h2,
+    .tuyendung h2{
+        font-size:28px;
+        margin-bottom:25px;
+    }
+
+    .section h3{
+        font-size:20px;
+    }
+
+    .section p{
+        font-size:15px;
+        line-height:1.7;
+    }
+
+    /* ========= GRID ========= */
+
+    .features,
+    .courses{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .feature-box,
+    .feature-box-tuyendung,
+    .card{
+        width:100%;
+    }
+
+    .card img{
+        width:100%;
+        height:200px;
+        object-fit:cover;
+    }
+
+    .card-content{
+        padding:20px;
+    }
+
+    /* ========= STATS ========= */
+
+    .stats{
+        display:flex;
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .stats>div{
+        width:100%;
+    }
+
+    /* ========= FORM ========= */
+
+    .container{
+        width:calc(100% - 24px);
+        max-width:700px;
+        margin:40px auto;
+        padding:25px 20px;
+        border-radius:15px;
+    }
+
+    .container h2{
+        font-size:28px;
+    }
+
+    .container h3{
+        font-size:16px;
+        line-height:1.6;
+    }
+
+    input,
+    textarea{
+        width:100%;
+        font-size:16px;
+    }
+
+    button{
+        width:100%;
+    }
+
+    /* ========= FOOTER ========= */
+
+    footer{
+        height:auto;
+        padding:20px;
+    }
+
+    footer h4{
+        font-size:26px;
+    }
+
+    iframe{
+        height:220px;
+    }
+
+    /* ========= FLOAT ========= */
+
+    .floating-contact{
+        right:10px;
+        bottom:10px;
+    }
+
+    .chat-btn{
+        width:52px;
+        height:52px;
+    }
+
+    .chat-btn img{
+        width:28px;
+        height:28px;
+    }
+
+}
+  </style>
+</head>
+<script>
+function toggleMenu() {
+  document.getElementById("menu").classList.toggle("active");
+}
+</script>
+
+<body>
+
+<header>
+  <div class="logo">
+ <img src="logo1.png">
+  <span>Gia Sư Tại Nhà</span>
+  </div>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <nav id="menu">
+    <a href="#home">Trang chủ</a>
+      <div class="dropdown">
+  <a href="javascript:void(0)" class="dropdown-btn">
+    Khóa học <span class="arrow">▼</span>
+  </a>
+  <div class="dropdown-content">
+    <a href="#services">TIỂU HỌC</a>
+    <a href="#services">THCS</a>
+      <a href="#services">BÁO BÀI</a>
+      <a href="#services">STEAM</a>
+  </div>
+</div>
+
+   <div class="dropdown">
+  <a href="javascript:void(0)" class="dropdown-btn">
+    Dành Cho Phụ Huynh <span class="arrow">▼</span>
+  </a>
+  <div class="dropdown-content">
+    <a href="Phu-Huynh.html">Giới Thiệu</a>
+    <a href="Phu-Huynh.html#register">
+      Liên Hệ Tìm Gia Sư
+    </a>
+  </div>
+</div>
+
+ <div class="dropdown">
+  <a href="javascript:void(0)" class="dropdown-btn">
+    Dành Cho Gia Sư <span class="arrow">▼</span>
+  </a>
+  <div class="dropdown-content">
+    <a href="tuyen-dung.html">Đăng ký làm gia sư</a>
+    <a href="tuyen-dung.html#policy">
+      Nội Quy Nhận Lớp
+    </a>
+  </div>
+</div>
+    <a href="#footer">Liên hệ</a> 
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-text">
+    <h1> Gia sư tại nhà – Hiệu quả nhanh chóng </h1>
+    <p>Kèm 1-1, báo bài, nâng cao điểm số rõ rệt</p>
+    <a href="#register"  class="btn attention-btn">Đăng ký ngay</a>
+  </div>
+   <!-- THÊM ẢNH -->
+  <img src="logo2.png" class="hero-img">
+  <script>
+const images = ["logo2.png","THCS.png","Tieuhoc.png","STEAM.jpg","Class6.png","Class7.png",];
+let i = 0;
+const heroImg = document.querySelector(".hero-img");
+heroImg.src = images[i];
+setInterval(() => {
+  i = (i + 1) % images.length;
+  heroImg.src = images[i];
+}, 3000);
+</script>
+ </section>
+<section class="process">
+  <h2>QUY TRÌNH LÀM VIỆC</h2>
+  <div class="process-wrap">
+    <div class="process-item">
+      <div class="circle">
+        <div class="inner">
+          <h3>📞 PHỤ HUYNH ĐĂNG KÝ</h3>
+          <p>Quý phụ huynh đăng ký tìm gia sư cho con thông qua việc điền đầy đủ thông tin và nhu cầu</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="process-item">
+      <div class="circle">
+        <div class="inner">
+          <h3>📄 TIẾP NHẬN HỒ SƠ</h3>
+          <p>Chúng tôi tiếp nhận, xem xét hồ sơ của quý phụ huynh để hiểu nhu cầu học tập</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="process-item">
+      <div class="circle">
+        <div class="inner">
+          <h3>🎓 GỬI HỒ SƠ GIA SƯ</h3>
+          <p>Sau khi xem xét, chúng tôi sẽ gửi hồ sơ gia sư phù hợp</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="process-item">
+      <div class="circle">
+        <div class="inner">
+          <h3>🤝 HỖ TRỢ LÂU DÀI</h3>
+          <p>Cam kết hỗ trợ trong quá trình học, đảm bảo chất lượng</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="section">
+  <section class="section why"> <!--tạo nền cho từng mục, tạo như thư mục con-->  
+     <h2>Tại sao chọn chúng tôi?</h2>
+  <div class="features">
+    <div class="feature-box"><h3>Gia sư giỏi - uy tín</h3><p>Kinh nghiệm & tận tâm <p><p>Chất lượng tạo nên thương hiệu</p></div>
+    <div class="feature-box"><h3>Dạy 1-1</h3><p>Theo sát từng học sinh<p>Cải thiện chất lượng học</p></div>
+    <div class="feature-box"><h3>Tối ưu chi phí</h3><p>Hỗ trợ mỗi ngày<p>Đồng hành cùng học sinh</p></div>
+  </div>
+ <div class="stats">
+
+  <div class="stats">
+  <div>
+    Trung tâm luôn lựa chọn kỹ lưỡng những gia sư là sinh viên năng động, nhiệt huyết, là những sinh viên ưu tú, xuất sắc tại các trường Cao Đẳng, Đại Học tại TPHCM.
+  </div>
+
+  <div>
+    95% học sinh tiến bộ trong thời gian theo học tại trung tâm.
+  </div>
+
+  <div>
+    Gia sư của chúng tôi sẽ dạy thử tuần đầu để học sinh và phụ huynh đánh giá trình độ và phong cách giảng dạy.Điều này giúp đảm bảo sự phù hợp và hiệu quả trong quá trình học.
+  </div>
+</div>
+</section>
+
+<section class="dichvugiasu" id="services">
+  <h2>Dịch vụ gia sư</h2>
+  <div class="courses">
+    <div class="card"><img src=THCS.png><div class="card-content"><h3>THCS</h3> 
+      <div class="hidden-content">
+      <p>LỚP 6-9</p>
+      <p>Ôn tập Toán - Lý - Hóa</p>
+      <p>Củng cố kiến thức nền, sửa chữa bài tập</p>
+       <a href="#register" class="btn attention-btn">Đăng ký ngay</a>
+    </div>
+  </div>
+  </div>
+       <div class="card"><img src=Tieuhoc.png><div class="card-content"><h3>TIỂU HỌC</h3>
+        <div class="hidden-content">
+      <p>LỚP 1-5</p>
+      <p>Ôn tập Toán - Tiếng Việt</p>
+      <p>Củng cố kiến thức nền, sửa chữa bài tập</p>
+      <a href="#register" class="btn attention-btn">Đăng ký ngay</a>
+    </div>
+     </div>
+   </div>
+       <div class="card"><img src=Classs5.jpg><div class="card-content"><h3>BÁO BÀI</h3>
+        <div class="hidden-content">
+      <p>Tất cả các môn</p>
+      <p>Ôn tập bài cũ</p>
+      <p>Củng cố kiến thức nền, chuẩn bị bài mới</p>
+       <a href="#register" class="btn attention-btn">Đăng ký ngay</a>
+    </div>
+  </div>
+   </div>
+    <div class="card"><img src=https://etechmekong.edu.vn/wp-content/uploads/2024/05/stem-la-gi.jpg><div class="card-content"><h3>STEM</h3>
+      <div class="hidden-content">
+      <p>CẤP TIỂU HỌC - THCS</p>
+      <p>ROBOTIC</p>
+      <p>Huấn luyện, Đào tạo, Sân chơi bổ ích</p>
+      <a href="#register" class="btn attention-btn">Đăng ký ngay</a>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="tuyendung" id="recruit">
+  <h2>Tuyển dụng gia sư</h2>
+  <div class="features">
+    <div class="feature-box-tuyendung">
+      <h3>Yêu cầu</h3>
+      <p>Sinh viên/giáo viên giỏi, có trách nhiệm giảng dạy</p>
+    </div>
+    <div class="feature-box-tuyendung">
+      <h3>Quyền lợi</h3>
+      <p>Thu nhập ổn định, linh hoạt thời gian</p>
+    </div>
+    <a href="tuyen-dung.html" style="text-decoration:none;color:inherit;">
+    <div class="feature-box-tuyendung">
+      <h3>Liên hệ</h3>
+      <p>Gửi thông tin qua Zalo hoặc đăng ký bên dưới</p>
+    </div></a>
+  </div>
+</section>
+
+<section div class="container" id="register">
+  <h2>Đăng ký ngay</h2>
+  <form id="form">
+
+    <input id="name" placeholder="Họ tên :" required>
+
+    <input id="phone" placeholder="Số điện thoại quý phụ huynh :" required>
+
+   <input id="subject" placeholder="Muốn tìm gia sư môn :" list="subject-list" required>
+<datalist id="subject-list">
+  <option value="Toán">
+  <option value="Văn">
+  <option value="Anh">
+  <option value="Lý">
+  <option value="Hóa">
+  <option value="Sinh">
+  <option value="Khoa học tự nhiên">
+  <option value="Tiếng Việt">
+</datalist>
+
+<input id="class" placeholder="Lớp :" list="class-list" required>
+<datalist id="class-list">
+  <option value="Lớp 1">
+  <option value="Lớp 2">
+  <option value="Lớp 3">
+  <option value="Lớp 4">
+  <option value="Lớp 5">
+  <option value="Lớp 6">
+  <option value="Lớp 7">
+  <option value="Lớp 8">
+  <option value="Lớp 9">
+</datalist>
+
+    <input id="area" placeholder="Địa chỉ : Số nhà, Đường, Phường,.....">
+    <textarea id="note" placeholder="Ghi chú"></textarea>
+
+    <button type="submit">GỬI ĐĂNG KÝ</button>
+
+    <div class="loading" id="loading">
+      ⏳ Đang gửi dữ liệu...
+    </div>
+
+    <div class="success" id="success">
+      ✔ Đăng ký thành công!
+    </div>
+
+  </form>
+</section>
+<footer id="footer">
+  <h4>Liên hệ</h4>
+  <p> <a href="https://www.facebook.com/profile.php?id=61581173162389"style="text-decoration:none"; target="📞 Hotline">📞 Hotline </a> </p>
+  <p>📍  Địa Chỉ :  Đông Hòa TP.Dĩ An</p>
+   <p>📘 <a  href="https://www.facebook.com/profile.php?id=61581173162389" style="text-decoration:none" ; target="Trung tâm gia sư tại nhà">
+    Trung tâm gia sư tại nhà
+</a></p>
+  <iframe 
+  src="https://www.google.com/maps?q=10.8968595,106.8104245&z=17&output=embed"
+  width="100%" 
+  height="300" 
+  style="border:0;border-radius:10px">
+</iframe>
+</footer>
+
+<div class="floating-contact">
+  <!-- Zalo -->
+  <a href="https://zalo.me/" target="_blank" class="chat-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg">
+  </a>
+
+  <!-- Messenger -->
+  <a href="https://m.me/813449265185812" target="_blank" class="chat-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg">
+  </a>
+</div>
+<div id="toast" class="toast">
+  ✔ Gửi thành công! Chúng tôi sẽ liên hệ sớm
+</div>
+</div>
+<script>
+document.getElementById("form").addEventListener("submit", function(e){
+
+  e.preventDefault();
+
+  document.getElementById("loading").style.display="block";
+  document.getElementById("success").style.display="none";
+
+  const data = new URLSearchParams();
+
+  data.append("name", document.getElementById("name").value);
+  data.append("phone", document.getElementById("phone").value);
+  data.append("subject", document.getElementById("subject").value);
+  data.append("class", document.getElementById("class").value);
+    data.append("area", document.getElementById("area").value);
+  data.append("note", document.getElementById("note").value);
+
+  fetch("https://script.google.com/macros/s/AKfycbxVnGWD9Hha38yPLm-iJXS6FtgYCUaZ68kn58azt4v3dckxmsQswY_4lmucVLkjmoQF/exec",{
+    method:"POST",
+    body:data
+  })
+
+  .then(res => {
+
+  document.getElementById("loading").style.display = "none";
+  document.getElementById("success").style.display = "block";
+
+  document.getElementById("form").reset();
+
+  setTimeout(() => {
+
+    // 🔥 RESET UI VỀ MẶC ĐỊNH
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("success").style.display = "none";
+
+    // 🔥 CUỘN LÊN ĐẦU TRANG
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }, 2000);
+
+})
+
+  .catch(err=>{
+
+    document.getElementById("loading").style.display="none";
+
+    alert("Có lỗi xảy ra!");
+
+  });
+
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    card.addEventListener("click", function () {
+
+      const isOpen = card.classList.contains("active");
+
+      // đóng tất cả
+      cards.forEach(c => c.classList.remove("active"));
+
+      // nếu chưa mở thì mở
+      if (!isOpen) {
+        card.classList.add("active");
+
+        // ⏱ tự đóng sau 5 giây
+        setTimeout(() => {
+          card.classList.remove("active");
+        }, 3000);
+      }
+
+    });
+  });
+});
+document.querySelectorAll("#menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("menu").classList.remove("active");
+  });
+});
+const dropdowns = document.querySelectorAll(".dropdown");
+
+dropdowns.forEach(drop => {
+
+    const btn = drop.querySelector(".dropdown-btn");
+
+    btn.onclick = function(e){
+
+        e.preventDefault();
+
+        // đóng các mục khác
+        dropdowns.forEach(item=>{
+            if(item!==drop){
+                item.classList.remove("active");
+            }
+        });
+
+        // mở hoặc đóng mục đang chọn
+        drop.classList.toggle("active");
+    }
+
+});
+</script>
+</body>
+<img src="./classroom.png" style="width:200px;"> <!--hiển thị google map-->
+</html>
