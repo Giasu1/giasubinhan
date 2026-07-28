@@ -656,6 +656,70 @@ html{
     font-size:13px;
     line-height:1.6;
   }
+  /* =========================
+   PRICING MOBILE ONLY
+========================= */
+@media (max-width:768px){
+
+  .pricing-section{
+      width:100%;
+      margin:25px auto;
+      padding:15px 10px;
+      border-radius:15px;
+      overflow:hidden;
+  }
+
+  .pricing-section h1{
+      font-size:22px;
+      line-height:1.5;
+      text-align:center;
+  }
+
+  .pricing-section h2{
+      font-size:18px;
+      line-height:1.5;
+      text-align:center;
+      margin:15px 0;
+  }
+
+  .price-table{
+      width:100%;
+      display:table;
+      table-layout:fixed;
+      border-collapse:collapse;
+  }
+
+  .price-table th,
+  .price-table td{
+      padding:10px 5px;
+      font-size:13px;
+      line-height:1.5;
+      white-space:normal;
+      word-break:break-word;
+      text-align:center;
+  }
+
+  .price-table td:first-child{
+      font-size:13px;
+      font-weight:600;
+  }
+
+}
+@media (max-width:768px){
+
+.price-table th:nth-child(1),
+.price-table td:nth-child(1){
+    width:35%;
+}
+
+.price-table th:nth-child(2),
+.price-table td:nth-child(2),
+.price-table th:nth-child(3),
+.price-table td:nth-child(3){
+    width:32.5%;
+}
+
+}
 
 }
 </style>
@@ -714,11 +778,45 @@ Với phương châm hoạt động “Uy tín – Chất lượng – Hiệu qu
 </div>
 </div>
  <div class="pricing" id="banggia">
-    <h1>Bảng giá Gia Sư Bình An - Liên hệ tư vấn và học thử buổi đầu:</h1>
   <section class="pricing-section">
+    <h1>📘 Bảng giá dịch vụ gia sư tại nhà:</h1>
+     <p></p>
+    <h2>Gói học 2 buổi/tuần (01 buổi 1,5 giờ)</h2>
+    <p></p>
+    <table class="price-table">
 
-    <h2>💰 BẢNG GIÁ DỊCH VỤ GIA SƯ BÌNH AN</h2>
-    <p>Gói học 2 buổi/tuần (01 buổi 1,5 giờ)</p>
+        <thead>
+
+            <tr>
+                <th rowspan="2">Khối lớp</th>
+                <th colspan="2">Học phí / Tháng</th>
+            </tr>
+
+            <tr>
+                <th>👨‍🎓 Sinh viên</th>
+                <th>👨‍🏫 Giáo viên</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>🌱 Lớp 1, 2, 3 ,4, 5</td>
+                <td>900.000đ - 1.000.000đ</td>
+                <td>1.300.000đ - 1.400.000đ</td>
+            </tr>
+            <tr>
+                <td>📘 Lớp 6, 7, 8, 9</td>
+                <td>1.000.000đ - 1.200.000đ</td>
+                <td>1.500.000đ - 1.600.000đ</td>
+            </tr>
+        </tbody>
+
+    </table>
+    <p> </p>
+    <h2> Gói học 3 buổi/tuần (01 buổi 1,5 giờ)</h2>
+    <p> </p>
 
     <table class="price-table">
 
@@ -739,20 +837,89 @@ Với phương châm hoạt động “Uy tín – Chất lượng – Hiệu qu
         <tbody>
 
             <tr>
-                <td>🌱 Lớp 1, 2,3 ,4, 5</td>
-                <td>900.000đ - 1.000.000đ</td>
-                <td>1.300.000đ - 1.400.000đ</td>
+                <td>🌱 Lớp 1, 2, 3 ,4, 5</td>
+                <td>1.400.000đ - 1.500.000đ</td>
+                <td>2.000.000đ - 2.100.000đ</td>
             </tr>
-
             <tr>
                 <td>📘 Lớp 6, 7, 8, 9</td>
-                <td>1.000.000đ - 1.200.000đ</td>
-                <td>1.500.000đ - 1.600.000đ</td>
+                <td>1.500.000đ - 1.800.000đ</td>
+                <td>2.200.000đ - 2.400.000đ</td>
             </tr>
         </tbody>
 
     </table>
+<p> </p>
 
+    <h2>Gói học 4 buổi/tuần (01 buổi 1,5 giờ) </h2>
+<p> </p>
+
+    <table class="price-table">
+
+        <thead>
+
+            <tr>
+                <th rowspan="2">Khối lớp</th>
+                <th colspan="2">Học phí / Tháng</th>
+            </tr>
+
+            <tr>
+                <th>👨‍🎓 Sinh viên</th>
+                <th>👨‍🏫 Giáo viên</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>🌱 Lớp 1, 2, 3 ,4, 5</td>
+                <td>1.900.000đ - 2.000.000đ</td>
+                <td>2.700.000đ - 2.800.000đ</td>
+            </tr>
+            <tr>
+                <td>📘 Lớp 6, 7, 8, 9</td>
+                <td>2.000.000đ - 2.400.000đ</td>
+                <td>2.900.000đ - 3.200.000đ</td>
+            </tr>
+        </tbody>
+
+    </table>
+    </section>
+    <section class="pricing-section">
+<h1>📘 Bảng giá dịch vụ gia sư tại trung tâm :</h1>
+<p> </p>
+<h2>Gói học 2 buổi/tuần (01 buổi 1,5 giờ)</h2>
+    <p></p>
+    <table class="price-table">
+
+        <thead>
+            <tr>
+                <th rowspan="2">Môn học</th>
+                <th colspan="2">Học phí / Tháng</th>
+            </tr>
+            <tr>
+                <th>👨‍🎓 Sinh viên</th>
+                <th>👨‍🏫 Giáo viên</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>🌱 Toán - Tiếng Việt 1, 2, 3 ,4, 5</td>
+                <td>300.000/môn</td>
+                <td>400.000/môn</td>
+            </tr>
+            <tr>
+                <td>📘 Toán 6, 7, 8, 9</td>
+                <td>400.000/môn</td>
+                <td>500.000/môn</td>
+            </tr>
+        </tbody>
+
+    </table>
 </section>
     <p>
  </p>
